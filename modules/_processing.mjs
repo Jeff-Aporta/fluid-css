@@ -1,3 +1,7 @@
+import fluidCSS from "./_protocol.mjs";
+
+export default Processing;
+
 function forcePx(s) {
   return s.toString().endsWith("px") ? s : s + "px";
 }
@@ -6,11 +10,11 @@ function camelToKebab(string) {
   return string.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
-export default function fluidCSS(params) {
-  return new fluid(params);
+function Processing(params) {
+  return new processing(params);
 }
 
-class fluid {
+class processing {
   #_value = [];
 
   #compare(head, body, rule) {
@@ -81,12 +85,12 @@ class fluid {
         head = [head[0], "x", head[1]];
       }
     } else {
-      console.log("CSScmds.btw: Invalid head in btw", head);
+      console.log("fluidCSS.btw: Invalid head in btw", head);
       return this;
     }
     const [strt, v, end] = head;
     if (!strt || !v || !end) {
-      console.log("CSScmds.btw: Error en el head", { strt, v, end });
+      console.log("fluidCSS.btw: Error en el head", { strt, v, end });
       return this;
     }
     return this.if(`${forcePx(strt)}<${v}<${forcePx(end)}`, body);
@@ -147,7 +151,7 @@ class fluid {
     };
     const [start, v, end] = head;
     if (!start || !v || !end) {
-      console.log("CSScmds.lerphw: Error en el head", { start, v, end });
+      console.log("fluidCSS.lerphw: Error en el head", { start, v, end });
       return this;
     }
     this.#_value.push(
@@ -157,7 +161,7 @@ class fluid {
           fs = ks.S[fs];
           fe = ks.E[fe];
           if (!fs || !s || !e || !fe) {
-            console.log("CSScmds.lerphw: Error en el body", { fs, s, e, fe });
+            console.log("fluidCSS.lerphw: Error en el body", { fs, s, e, fe });
             return "";
           }
           return `${camelToKebab(k)}:${fs}${[s, e]
@@ -179,6 +183,7 @@ class fluid {
     const code = this.toString();
     this.#_value = [];
     const ex = fluidCSS({ code, clss });
+    console.log({ ex, code });
     return ex;
   }
   toString() {

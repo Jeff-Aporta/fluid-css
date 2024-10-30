@@ -4,8 +4,10 @@ import {
   soportarMultilinea,
   CrearIFHW,
   CrearLERPHW,
-  processing
+  Processing
 } from "./modules.mjs";
+
+export default fluidCSS;
 
 const CSScmdsReset = () => {
   Object.values(appvar.reglasCMD).forEach((regla) => {
@@ -14,9 +16,9 @@ const CSScmdsReset = () => {
   actualizarStyle();
 };
 
-const fluidCSS = (props) => {
+function fluidCSS(props){
   if (!props) {
-    return new processing();
+    return Processing();
   }
   let { code, clss = [], reset } = props;
   if (reset) {
@@ -69,5 +71,3 @@ const fluidCSS = (props) => {
 
 CrearIFHW();
 CrearLERPHW();
-
-export default fluidCSS;

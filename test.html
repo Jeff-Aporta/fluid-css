@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="module">
+      import fluidCSS from "./index.mjs";
+      console.log(
+        fluidCSS()
+          .lerpX([320, 900], {
+            fontSize: [12, 15],
+          })
+          .end()
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

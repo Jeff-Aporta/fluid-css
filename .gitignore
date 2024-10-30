@@ -2,3 +2,5 @@ node_modules
 
 *.ini
 *.ico
+
+_.js
