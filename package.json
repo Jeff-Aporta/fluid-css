@@ -1,10 +1,12 @@
 {
   "name": "fluid-css-lng",
-  "version": "1.0.0",
-  "main": "fluid-css.js",
+  "version": "1.0.13",
+  "main": "index.mjs",
   "description": "Lenguaje interpretado para tratamiento de caracteristicas complejas de CSS.",
   "type": "module",
   "scripts": {
+    "gitadd": "npm run build && git add . && git add --renormalize .",
+    "gitpush": "git push origin main && node version",
     "build": "npm run sass-build && rollup -c",
     "sass-build": "sass --no-source-map --style compressed public/theme/scss/abrevs.scss:public/css/main-sass.css"
   },
