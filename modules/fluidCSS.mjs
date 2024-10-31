@@ -1,8 +1,10 @@
-import Processing from "./processing.mjs";
+import { Processing, init as initProcessing } from "./processing.mjs";
+
+initProcessing({ fluidCSS });
 
 let appvar, actualizarStyle, soportarMultilinea, CrearIFHW, CrearLERPHW;
 
-export default fluidCSS;
+export { fluidCSS, init };
 
 const CSScmdsReset = () => {
   Object.values(appvar.reglasCMD).forEach((regla) => {
@@ -11,12 +13,15 @@ const CSScmdsReset = () => {
   actualizarStyle();
 };
 
-function fluidCSS(props) {
+function init(props) {
   appvar ??= props.appvar;
   actualizarStyle ??= props.actualizarStyle;
   soportarMultilinea ??= props.soportarMultilinea;
   CrearIFHW ??= props.CrearIFHW;
   CrearLERPHW ??= props.CrearLERPHW;
+}
+
+function fluidCSS(props) {
   if (!props) {
     return Processing();
   }
@@ -68,6 +73,3 @@ function fluidCSS(props) {
     }
   }
 }
-
-CrearIFHW();
-CrearLERPHW();

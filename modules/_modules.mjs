@@ -4,18 +4,18 @@ import CrearLERPHW from "./functions/_lerp.mjs";
 import appvar from "./vars.mjs";
 import actualizarStyle from "./update.mjs";
 import soportarMultilinea from "./multiline.mjs";
-import Processing from "./processing.mjs";
-import fluidCSS from "./fluidCSS.mjs";
+import { Processing, init as initProcessing } from "./processing.mjs";
+import { fluidCSS, init as initFluid } from "./fluidCSS.mjs";
 
-fluidCSS = fluidCSS({
+initFluid({
   appvar,
   actualizarStyle,
   soportarMultilinea,
   CrearIFHW,
   CrearLERPHW,
-  Processing,
 });
-Processing = Processing(fluidCSS);
+
+initProcessing({ fluidCSS });
 
 export {
   appvar,
@@ -26,3 +26,6 @@ export {
   fluidCSS,
   Processing,
 };
+
+CrearIFHW();
+CrearLERPHW();

@@ -1,3 +1,3 @@
-import fluidCSS from "./modules/fluidCSS.mjs";
+import { fluidCSS } from "./modules/_modules.mjs";
 
 export default fluidCSS;

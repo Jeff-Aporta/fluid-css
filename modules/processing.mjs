@@ -1,6 +1,6 @@
 let fluidCSS;
 
-export default Processing;
+export { Processing, init };
 
 function forcePx(s) {
   return s.toString().endsWith("px") ? s : s + "px";
@@ -10,8 +10,11 @@ function camelToKebab(string) {
   return string.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
+function init(params) {
+  fluidCSS ??= params?.fluidCSS;
+}
+
 function Processing(params) {
-  fluidCSS ??= params.fluidCSS;
   return new processing(params);
 }
 
@@ -184,7 +187,6 @@ class processing {
     const code = this.toString();
     this.#_value = [];
     const ex = fluidCSS({ code, clss });
-    console.log({ ex, code });
     return ex;
   }
   toString() {
