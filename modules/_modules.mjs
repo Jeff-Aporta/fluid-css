@@ -7,7 +7,14 @@ import soportarMultilinea from "./multiline.mjs";
 import Processing from "./processing.mjs";
 import fluidCSS from "./fluidCSS.mjs";
 
-fluidCSS = fluidCSS({appvar,actualizarStyle,soportarMultilinea,CrearIFHW,CrearLERPHW,Processing});
+fluidCSS = fluidCSS({
+  appvar,
+  actualizarStyle,
+  soportarMultilinea,
+  CrearIFHW,
+  CrearLERPHW,
+  Processing,
+});
 Processing = Processing(fluidCSS);
 
 export {
@@ -16,6 +23,6 @@ export {
   soportarMultilinea,
   CrearIFHW,
   CrearLERPHW,
-  protocol,
+  fluidCSS,
   Processing,
 };
