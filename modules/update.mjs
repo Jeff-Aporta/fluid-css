@@ -1,4 +1,4 @@
-import appvar from "./_vars.mjs";
+import appvar from "./vars.mjs";
 
 setTimeout(() => {
   appvar.css_cmdscalc = "/*.css-cmdcalc remove*/";

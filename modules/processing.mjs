@@ -1,4 +1,4 @@
-import fluidCSS from "./_protocol.mjs";
+let fluidCSS;
 
 export default Processing;
 
@@ -11,6 +11,7 @@ function camelToKebab(string) {
 }
 
 function Processing(params) {
+  fluidCSS ??= params.fluidCSS;
   return new processing(params);
 }
 

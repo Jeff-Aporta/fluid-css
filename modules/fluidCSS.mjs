@@ -1,11 +1,6 @@
-import {
-  appvar,
-  actualizarStyle,
-  soportarMultilinea,
-  CrearIFHW,
-  CrearLERPHW,
-  Processing
-} from "./modules.mjs";
+import Processing from "./processing.mjs";
+
+let appvar, actualizarStyle, soportarMultilinea, CrearIFHW, CrearLERPHW;
 
 export default fluidCSS;
 
@@ -16,7 +11,12 @@ const CSScmdsReset = () => {
   actualizarStyle();
 };
 
-function fluidCSS(props){
+function fluidCSS(props) {
+  appvar ??= props.appvar;
+  actualizarStyle ??= props.actualizarStyle;
+  soportarMultilinea ??= props.soportarMultilinea;
+  CrearIFHW ??= props.CrearIFHW;
+  CrearLERPHW ??= props.CrearLERPHW;
   if (!props) {
     return Processing();
   }
@@ -67,7 +67,7 @@ function fluidCSS(props){
       actualizarStyle();
     }
   }
-};
+}
 
 CrearIFHW();
 CrearLERPHW();

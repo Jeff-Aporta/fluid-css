@@ -1,3 +1,3 @@
-import fluidCSS from "./modules/_protocol.mjs";
+import fluidCSS from "./modules/fluidCSS.mjs";
 
 export default fluidCSS;

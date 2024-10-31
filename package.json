@@ -1,6 +1,6 @@
 {
   "name": "fluid-css-lng",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "main": "index.mjs",
   "description": "Lenguaje interpretado para tratamiento de caracteristicas complejas de CSS.",
   "type": "module",

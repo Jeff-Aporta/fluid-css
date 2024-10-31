@@ -1,5 +1,5 @@
-import appvar from "../_vars.mjs";
-import { buscarClase, regexGeneric, Npx } from "../_tools.mjs";
+import appvar from "../vars.mjs";
+import { buscarClase, regexGeneric, Npx } from "../tools.mjs";
 
 const [INDEX_SIMPLE, INDEX_TRUE, INDEX_FALSE] = [-1, 0, 1];
 const [INDEX_DOWN, INDEX_IN, INDEX_UP] = [0, 1, 2];

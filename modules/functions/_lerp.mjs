@@ -1,5 +1,5 @@
-import appvar from "../_vars.mjs";
-import { buscarClase, regexGeneric, Npx } from "../_tools.mjs";
+import appvar from "../vars.mjs";
+import { buscarClase, regexGeneric, Npx } from "../tools.mjs";
 
 const vs = {
   x: "vw",

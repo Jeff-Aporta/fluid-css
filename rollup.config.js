@@ -4,7 +4,7 @@ import { terser } from "rollup-plugin-terser";
 export default {
   input: "index.mjs",
   output: {
-    file: "public/index.js",
+    file: "public/index.min.js",
     format: "iife",
     name: "fluidCSS",
   },
