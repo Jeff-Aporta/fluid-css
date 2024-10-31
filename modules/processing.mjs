@@ -121,13 +121,20 @@ class processing {
   if(cond, body) {
     this.#_value.push(
       `${cond}?{${Object.entries(body)
-        .map(
-          ([k, v]) =>
-            `${camelToKebab(k)}:(${v.map((_v) => _v || "").join(",")})`
-        )
+        .map(([k, v]) => `${camelToKebab(k)}:(${tratarV(v).join(",")})`)
         .join(";")}}`
     );
     return this;
+
+    function tratarV(v) {
+      if (typeof v == "string") {
+        return [v, ""];
+      }
+      if (Array.isArray(v) && v.length == 1) {
+        return [v[0], ""];
+      }
+      return v;
+    }
   }
   /*
     LERP:

@@ -7,5 +7,5 @@ npm
 CDN
 
 ```bash
-    https://jeff-aporta.github.io/fluid-css/public/index.js
+    https://jeff-aporta.github.io/fluid-css/public/index.min.js
 ```
