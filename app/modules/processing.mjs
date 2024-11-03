@@ -104,7 +104,7 @@ class processing {
     strt = parseInt(strt);
     end = parseInt(end);
     const min = Math.min(strt, end);
-    const max = Math.min(strt, end);
+    const max = Math.max(strt, end);
     return this.if(`${forcePx(min)}<${v}<${forcePx(max)}`, body);
   }
   btwX(head, body) {
