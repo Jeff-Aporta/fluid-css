@@ -1,7 +1,3 @@
-
-
-
-
 let fluidCSS;
 
 export { Processing, init };
@@ -96,17 +92,33 @@ class processing {
       console.log("fluidCSS.btw: Invalid head in btw", head);
       return this;
     }
-    const [strt, v, end] = head;
+    if (head.length != 3) {
+      console.log("fluidCSS.btw: Invalid head in btw", head);
+      return this;
+    }
+    let [strt, v, end] = head;
     if (!strt || !v || !end) {
       console.log("fluidCSS.btw: Error en el head", { strt, v, end });
       return this;
     }
-    return this.if(`${forcePx(strt)}<${v}<${forcePx(end)}`, body);
+    strt = parseInt(strt);
+    end = parseInt(end);
+    const min = Math.min(strt, end);
+    const max = Math.min(strt, end);
+    return this.if(`${forcePx(min)}<${v}<${forcePx(max)}`, body);
   }
   btwX(head, body) {
+    if (!Array.isArray(head) || head.length != 2) {
+      console.log("fluidCSS.btwX: Invalid head in btw", head);
+      return this;
+    }
     return this.btw([head[0], "x", head[1]], body);
   }
   btwY(head, body) {
+    if (!Array.isArray(head) || head.length != 2) {
+      console.log("fluidCSS.btwY: Invalid head in btw", head);
+      return this;
+    }
     return this.btw([head[0], "y", head[1]], body);
   }
   /*

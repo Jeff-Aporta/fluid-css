@@ -1,11 +1,10 @@
 {
   "name": "fluid-css-lng",
-  "version": "1.1.2",
-  "main": "index.mjs",
+  "version": "1.1.5",
+  "main": "./app/index.mjs",
   "description": "Lenguaje interpretado para tratamiento de caracteristicas complejas de CSS.",
   "type": "module",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [],
   "author": "J3FF-4P0RT4, P4TR1C14",
   "license": "ISC",
