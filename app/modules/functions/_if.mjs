@@ -405,7 +405,7 @@ function CrearIFHW() {
           dir,
         });
         aplicarReglaMedia({
-          media: `${propMedia[dir]} <= ${key}`,
+          media: `${propMedia[dir]} < ${key}`,
           index: () => INDEX_FALSE,
           array: _,
           key,
