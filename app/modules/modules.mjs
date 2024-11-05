@@ -1,5 +1,5 @@
-import CrearIFHW from "./functions/_if.mjs";
-import CrearLERPHW from "./functions/_lerp.mjs";
+import CrearIFHW from "./functions/if.mjs";
+import CrearLERPHW from "./functions/lerp.mjs";
 
 import appvar from "./vars.mjs";
 import actualizarStyle from "./update.mjs";
