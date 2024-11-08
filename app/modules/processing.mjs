@@ -22,68 +22,28 @@ class processing {
   #_value = [];
 
   #compare(head, body, rule) {
-    if (Array.isArray(head)) {
-      if (head.length == 1) {
-        head = ["x", ...head];
-      }
-    } else {
-      return this.#compare([head], body);
-    }
     const [v, sz] = head;
     return this.if(`${v}${rule}${sz}`, body);
   }
-  /*
-    LESS THAN:
-    --------------------
-   
-    .gt(LIMIT,{
-        PROPERTY_CSS: [BELOW, ABOVE]
-    })
-
-    */
-  lt(head, body) {
+  #lt(head, body) {
     return this.#compare(head, body, "<");
   }
   ltX(head, body) {
-    return this.lt(["x", head], body);
+    return this.#lt(["x", head], body);
   }
   ltY(head, body) {
-    return this.lt(["y", head], body);
+    return this.#lt(["y", head], body);
   }
-  /*
-   GREATER THAN:
-   --------------------
-   
-   .gt(LIMIT,{
-      PROPERTY_CSS: [ABOVE ,BELOW]
-   })
-
-   */
-  gt(head, body) {
+  #gt(head, body) {
     return this.#compare(head, body, ">");
   }
   gtX(head, body) {
-    return this.gt(["x", head], body);
+    return this.#gt(["x", head], body);
   }
   gtY(head, body) {
-    return this.gt(["y", head], body);
+    return this.#gt(["y", head], body);
   }
-  /*
-   BETWEEN:
-   --------------------
-
-   .btw([LOWER_LIMIT,AXIS,UPPER_LIMIT],{
-      PROPERTY_CSS: [BELOW, INSIDE ,ABOVE]
-   })
-
-   # Para "x": (default)
-
-   .btw([LOWER_LIMIT,UPPER_LIMIT],{
-      PROPERTY_CSS: [BELOW, INSIDE ,ABOVE]
-   })
-
-   */
-  btw(head, body) {
+  #btw(head, body) {
     if (Array.isArray(head)) {
       if (head.length == 2) {
         head = [head[0], "x", head[1]];
@@ -112,28 +72,15 @@ class processing {
       console.log("fluidCSS.btwX: Invalid head in btw", head);
       return this;
     }
-    return this.btw([head[0], "x", head[1]], body);
+    return this.#btw([head[0], "x", head[1]], body);
   }
   btwY(head, body) {
     if (!Array.isArray(head) || head.length != 2) {
       console.log("fluidCSS.btwY: Invalid head in btw", head);
       return this;
     }
-    return this.btw([head[0], "y", head[1]], body);
+    return this.#btw([head[0], "y", head[1]], body);
   }
-  /*
-   IF:
-   STRING_COND (EXAMPLES): 
-      LT:   "x<500px", "y<500px"
-      GT:   "x>500px", "y<500px"
-      BTW:  "500px<x<1000px", "500px<y<1000px"
-   --------------------
-
-   .if(STRING_COND,{
-      PROPERTY_CSS: [BELOW, INSIDE ,ABOVE]
-   })
-
-   */
   if(cond, body) {
     this.#_value.push(
       `${cond}?{${Object.entries(body)
@@ -152,16 +99,6 @@ class processing {
       return v;
     }
   }
-  /*
-    LERP:
-    FLAGS: "e" to ends un start projection, "p" to open projection
-    --------------------
-    
-    .lerp([START_PROJECT, AXIS, END_PROJECT],{
-        PROPERTY_CSS: [FLAG_PROJ_START, START_VAL, END_VAL, FLAG_PROJ_END]
-    })
-
-  */
   lerp(head, body) {
     if (!Array.isArray(head)) {
       head = [head];
