@@ -97,7 +97,7 @@ class processing {
       return this;
     }
     let [strt, v, end] = head;
-    if (!strt || !v || !end) {
+    if (strt == undefined || v == undefined || end == undefined) {
       console.log("fluidCSS.btw: Error en el head", { strt, v, end });
       return this;
     }
@@ -177,8 +177,8 @@ class processing {
       },
     };
     const [start, v, end] = head;
-    if (!start || !v || !end) {
-      console.log("fluidCSS.lerphw: Error en el head", { start, v, end });
+    if (start == undefined || v == undefined || end == undefined) {
+      console.log("fluidCSS.lerp: Error en el head", { start, v, end });
       return this;
     }
     this.#_value.push(
@@ -187,8 +187,8 @@ class processing {
           let [fs = "e", s, e, fe = "e"] = v.length == 2 ? ["e", ...v] : v;
           fs = ks.S[fs];
           fe = ks.E[fe];
-          if (!fs || !s || !e || !fe) {
-            console.log("fluidCSS.lerphw: Error en el body", { fs, s, e, fe });
+          if (fs == undefined || s == undefined || e == undefined || fe == undefined) {
+            console.log("fluidCSS.lerp: Error en el body", { fs, s, e, fe });
             return "";
           }
           return `${camelToKebab(k)}:${fs}${[s, e]
@@ -206,7 +206,8 @@ class processing {
   lerpY(head, body) {
     return this.lerp([head[0], "y", head[1]], body);
   }
-  end(clss = "") {
+  end(...clss) {
+    clss = clss.filter(Boolean).join(" ");
     const code = this.toString();
     this.#_value = [];
     const ex = fluidCSS({ code, clss });
