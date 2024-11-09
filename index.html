@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fluid CSS</title>
     <meta
       property="og:site_name"
       content="Fluid-CSS | Lenguaje interpretado para CSS"
@@ -14,21 +14,31 @@
       content="Fluid-CSS, Lenguaje interpretado para tratamiento de caracteristicas complejas de CSS."
     />
 
-    <meta property="og:image" content="/public/img/logo.png" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/public/img/icono_64x64.png"
-    />
-    <link rel="apple-touch-icon" href="/public/img/icono_64x64.png" />
-    <meta name="theme-color" content="#121213" />
+    <meta property="og:image" content="static/img/logo.png" />
+    <link rel="icon" type="image/png" href="static/img/icono_64x64.png" />
+    <link rel="apple-touch-icon" href="static/img/icono_64x64.png" />
+    <meta name="theme-color" content="#111133" />
 
-    <title>Fluid CSS</title>
-    <script src="https://jeff-aporta.github.io/ASCIIMapLoader/index.js"></script>
+    <script
+      type="text/javascript"
+      src="https://jeff-aporta.github.io/ascii-maploader/static/js/index.all.min.js"
+    ></script>
     <script>
+      asciiMap.CLI.designSysCliRender_DocuDesignPR();
+
+      asciiMap
+        .tree("static")
+        .subDir("jsx", (jsx) => {
+          jsx.jsx("initApp").subDir("contents", (contents) => {
+            contents.jsx("intro", "conds");
+          });
+        })
+        .writehtml();
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <script>
+      asciiMap.CLI.designSysCliRender_DocuDesign_body();
+    </script>
   </body>
 </html>
