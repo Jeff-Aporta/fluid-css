@@ -53,19 +53,7 @@ function initApp() {
         lbl: " ",
       },
       {
-        component: () => (
-          <center>
-            <Button
-              color="darkprimary"
-              variant="contained"
-              startIcon={<i className="fa fa-globe" />}
-              target="_blank"
-              href="https://jeff-aporta.github.io/portafolio/"
-            >
-              Más en mi portafolio
-            </Button>
-          </center>
-        ),
+        component: () => <_masEnMiPortafolio />,
       },
       {
         lbl: " - ",
@@ -92,16 +80,10 @@ function initApp() {
         i: "fa-solid fa-person-chalkboard",
       },
       {
-        lbl: "Modo Cascada",
-        id: "cascade",
-        content: () => <_cascade />,
-        i: "fa-solid fa-code",
-      },
-      {
-        lbl: "Inserción por cadena",
-        id: "string",
-        content: () => <_string />,
-        i: "fa-solid fa-code",
+        lbl: "Interpolación líneal",
+        id: "lerp",
+        content: () => <_lerp />,
+        i: "fa-solid fa-arrows-left-right",
       },
       {
         lbl: "  ",

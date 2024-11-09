@@ -95,3 +95,15 @@ fluidCSS()
 ```
 
 Este código ajusta el tamaño de la fuente dependiendo del ancho de la pantalla. Si el ancho está entre 600px y 1200px, el tamaño será de 16px. Si está fuera de ese rango, se aplicará 12px.
+
+<br />
+<hr />
+<br />
+
+<h2 align="right">
+  Más en mi portafolio
+  <br />
+  <a href="https://jeff-aporta.github.io/portafolio">
+    https://jeff-aporta.github.io/portafolio
+  </a>
+</h2>

@@ -1,17 +1,3 @@
-function _$big4({ children }) {
-  return (
-    <big>
-      <big>
-        <big>
-          <big className="c-skyblue">
-            <strong>{children}</strong>
-          </big>
-        </big>
-      </big>
-    </big>
-  );
-}
-
 function _conds() {
   setTimeout(PR.prettyPrint);
   return (
@@ -22,17 +8,11 @@ function _conds() {
       reglas definen cómo deben cambiar las propiedades CSS a medida que el
       ancho de la ventana varía, permitiendo adaptar el diseño de la interfaz a
       diferentes tamaños de pantalla.
-      <$h />
-      <$hr />
-      <$h />
+      {sep}
       <MenorQue />
-      <$h />
-      <$hr />
-      <$h />
+      {sep}
       <MayorQue />
-      <$h />
-      <$hr />
-      <$h />
+      {sep}
       <Entre />
     </$FMD>
   );
@@ -61,6 +41,7 @@ function MenorQue() {
           por separado.
           <$h />
           <strong>Forma general</strong>
+          <$$h />
           <$code style={{ color: "khaki" }}>
             {[
               "fluidCSS({",
@@ -75,6 +56,7 @@ function MenorQue() {
           </$code>
           <$$h />
           <strong>Ejemplo de uso</strong>
+          <$$h />
           <$PR lang="javascript">
             {[
               "fluidCSS({",
@@ -87,7 +69,7 @@ function MenorQue() {
               "})",
             ].join("\n")}
           </$PR>
-          <$h />
+          <$$h />
           <strong>
             <$secundario>Estructura cascada</$secundario>
           </strong>
@@ -98,6 +80,7 @@ function MenorQue() {
           según se necesite.
           <$h />
           <strong>Forma general</strong>
+          <$$h />
           <$code style={{ color: "khaki" }}>
             {[
               "fluidCSS()",
@@ -109,6 +92,7 @@ function MenorQue() {
           </$code>
           <$$h />
           <strong>Ejemplo de uso</strong>
+          <$$h />
           <$PR lang="javascript">
             {[
               "fluidCSS()",
@@ -160,6 +144,7 @@ function MayorQue() {
           ajuste por separado.
           <$h />
           <strong>Forma general</strong>
+          <$$h />
           <$code style={{ color: "khaki" }}>
             {[
               "fluidCSS({",
@@ -174,6 +159,7 @@ function MayorQue() {
           </$code>
           <$$h />
           <strong>Ejemplo de uso</strong>
+          <$$h />
           <$PR lang="javascript">
             {[
               "fluidCSS({",
@@ -192,7 +178,7 @@ function MayorQue() {
           (font-size) será de 18px. de lo contrario, el tamaño de la fuente será
           de 14px. La propiedad clss permite añadir clases adicionales que se
           ajustarán según la condición.
-          <$h />
+          <$$h />
           <strong>
             <$secundario>Estructura cascada</$secundario>
           </strong>
@@ -260,6 +246,7 @@ function Entre() {
           definir estilos más específicos en tres rangos de tamaño.
         </p>
         <$CardDef title="Forma General (Bifurcada)" elevation={0}>
+          <$$h />
           La **forma general bifurcada** en `fluidCSS` permite definir reglas
           que aplican estilos específicos cuando el ancho o la altura de la
           pantalla está dentro de un rango determinado.
@@ -308,7 +295,7 @@ function Entre() {
           600 píxeles o mayor a 1200 píxeles), el tamaño de la fuente será de
           12px. La propiedad clss permite añadir clases adicionales que se
           aplicarán según la condición.
-          <$h />
+          <$$h />
           <strong>
             <$secundario>Estructura cascada</$secundario>
           </strong>

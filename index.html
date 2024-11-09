@@ -26,14 +26,18 @@
     <script>
       asciiMap.CLI.designSysCliRender_DocuDesignPR();
 
-      asciiMap
+      if (window.location.href.includes("github")) {
+        asciiMap.writenodes("static/js/appdoc.client.merged.min.js");
+      } else {
+        asciiMap
         .tree("static")
         .subDir("jsx", (jsx) => {
           jsx.jsx("initApp").subDir("contents", (contents) => {
-            contents.jsx("intro", "conds");
+            contents.jsx("intro", "conds", "lerp");
           });
         })
         .writehtml();
+      }
     </script>
   </head>
   <body>

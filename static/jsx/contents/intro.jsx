@@ -1,3 +1,11 @@
+const sep = (
+  <_>
+    <$$h />
+    <$hr />
+    <$$h />
+  </_>
+);
+
 function _intro() {
   return (
     <$FMD>
@@ -11,8 +19,9 @@ function _intro() {
           encapsulados.
         </p>
       </_$Bienvenido>
-      <$h />
-      <$h />
+      <$$h />
+      <$hr />
+      <$$h />
       <Card className="pad-10px">
         <$ variant="h8">
           <$secundario>Características principales:</$secundario>
