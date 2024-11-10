@@ -235,6 +235,7 @@ function _lerp() {
           <$code style={{ color: "khaki" }} elevation={0}>
             {["600px<-x->1200px?{", "   margin: [20px, 50px);", "}"].join("\n")}
           </$code>
+          <$$h />
           <center>
             <_close_open_proj />
           </center>
@@ -249,6 +250,7 @@ function _lerp() {
           <$code style={{ color: "khaki" }} elevation={0}>
             {["600px<-x->1200px?{", "   margin: (20px, 50px];", "}"].join("\n")}
           </$code>
+          <$$h />
           <center>
             <_open_close_proj />
           </center>
@@ -272,12 +274,13 @@ function _lerp() {
     function _open_close_proj() {
       return (
         <svg
-          width="350"
           height="300"
           xmlns="http://www.w3.org/2000/svg"
+          className={fluidCSS()
+            .lerpX([320, 500], { width: [220, 350] })
+            .end()}
           style={{
             backgroundColor: "white",
-            margin: "20px",
             filter: "invert(0.95)",
             borderRadius: "20px",
           }}
@@ -402,12 +405,13 @@ function _lerp() {
     function _close_open_proj() {
       return (
         <svg
-          width="350"
           height="300"
           xmlns="http://www.w3.org/2000/svg"
+          className={fluidCSS()
+            .lerpX([320, 500], { width: [220, 350] })
+            .end()}
           style={{
             backgroundColor: "white",
-            margin: "20px",
             filter: "invert(0.95)",
             borderRadius: "20px",
           }}
@@ -557,6 +561,7 @@ function _lerp() {
           <$code style={{ color: "khaki" }} elevation={0}>
             {["600px<-x->1200px?{", "   margin: (20px, 50px);", "}"].join("\n")}
           </$code>
+          <$$h />
           <center>
             <_open_proj />
           </center>
@@ -573,12 +578,13 @@ function _lerp() {
     function _open_proj() {
       return (
         <svg
-          width="350"
           height="300"
           xmlns="http://www.w3.org/2000/svg"
+          className={fluidCSS()
+            .lerpX([320, 500], { width: [220, 350] })
+            .end()}
           style={{
             backgroundColor: "white",
-            margin: "20px",
             filter: "invert(0.95)",
             borderRadius: "20px",
           }}
@@ -724,6 +730,7 @@ function _lerp() {
           <$code style={{ color: "khaki" }} elevation={0}>
             {["600px<-x->1200px?{", "   margin: [20px, 50px];", "}"].join("\n")}
           </$code>
+          <$$h />
           <center>
             <_close_proj />
           </center>
@@ -740,12 +747,13 @@ function _lerp() {
     function _close_proj() {
       return (
         <svg
-          width="350"
           height="300"
           xmlns="http://www.w3.org/2000/svg"
+          className={fluidCSS()
+            .lerpX([320, 500], { width: [220, 350] })
+            .end()}
           style={{
             backgroundColor: "white",
-            margin: "20px",
             filter: "invert(0.95)",
             borderRadius: "20px",
           }}
