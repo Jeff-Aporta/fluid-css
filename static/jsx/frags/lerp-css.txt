@@ -22,5 +22,5 @@
 
     /* lerp: Proyección mixta ( ] */
     --t-open-end: clamp(-1px, var(--t), 1px); /* t <= 1 */
-    --lerp-open-end: calc((var(--vf) - var(--vi)) * var(--t-open-end) + var(--vis));                                
+    --lerp-open-end: calc((var(--vf) - var(--vi)) * var(--t-open-end) + var(--vis));
 }
