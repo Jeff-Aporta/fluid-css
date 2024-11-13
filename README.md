@@ -14,87 +14,59 @@
     </a>
 </h2>
 
-**Fluid CSS** es un sistema avanzado para el manejo y manipulación dinámica de estilos CSS, basado en comandos personalizados. Está diseñado para ajustar y personalizar los estilos de tu proyecto en función de condiciones específicas, como el tamaño de la pantalla, mediante reglas CSS dinámicas.
-
-Fluid CSS permite crear diseños responsivos y fluidos, mejorando la experiencia de usuario al hacer que las interfaces se adapten de manera precisa a diferentes tamaños de pantalla.
-
-## Características principales
-
-### Interpolación Lineal
-
-Ajusta de manera fluida los atributos CSS que utilizan unidades en píxeles, permitiendo que los elementos de la interfaz se adapten proporcionalmente. Esto garantiza transiciones suaves y escalado preciso, ideal para diseños responsivos.
-
-```
-.lerpX(sz, props)
-```
-
-### Condiciones Dinámicas
-
-Define comportamientos específicos según condiciones dinámicas, tales como "menor que", "mayor que" y "entre", aplicadas al ancho o altura de la ventana. Esto permite ajustar los elementos de la interfaz en función de diferentes rangos de dimensiones, optimizando su adaptación según el tamaño de la pantalla.
-
-```
-.ltX(sz, props) .gtX(sz, props) .btwX(szs, props)
-```
-
-```
-.ltY(sz, props) .gtY(sz, props) .btwY(szs, props)
-```
-
-### Fácil Integración
-
-**Fluid CSS** es compatible con cualquier proyecto web y es fácil de implementar. Funciona tanto en el lado del cliente como en el lado del servidor usando npm, lo que lo hace flexible y adaptable a distintos entornos de desarrollo.
-
-Es ideal para proyectos que requieren una adaptación dinámica y responsiva de los estilos según las dimensiones de la ventana, proporcionando una experiencia visual optimizada y sin complicaciones adicionales.
+Fluid CSS es un sistema avanzado para manejar y manipular estilos CSS de manera dinámica, diseñado para adaptarse a condiciones específicas mediante comandos de estilo personalizados. Este sistema permite definir reglas CSS responsivas, ajustándose automáticamente a variables como el tamaño de la pantalla.
 
 ## Instalación
 
 ### CDN
-
-Para usar Fluid CSS en tu proyecto, puedes integrarlo de forma sencilla mediante la URL en tu código HTML:
-
-```
-https://jeff-aporta.github.io/fluid-css/static/js/index.all.min.js
-```
+Para usar Fluid CSS en tu proyecto, solo necesitas agregar el siguiente enlace a tu código HTML:
 
 ```html
-<script
-  type="text/javascript"
-  src="https://jeff-aporta.github.io/fluid-css/static/js/index.all.min.js"
-></script>
+<script src="https://jeff-aporta.github.io/fluid-css/static/js/index.all.min.js"></script>
 ```
 
 ### npm
-
-Si prefieres instalar Fluid CSS usando npm, ejecuta el siguiente comando:
+También puedes instalar Fluid CSS como un módulo de npm ejecutando el siguiente comando en tu proyecto:
 
 ```bash
 npm install fluid-css-lng
 ```
 
-## Uso
+## Comprobar funcionamiento
 
-Una vez instalado, puedes comenzar a utilizar Fluid CSS en tu proyecto. A continuación, se muestra un ejemplo básico de cómo definir un estilo condicional con el tamaño de la pantalla:
+### Uso con IIFE
+Para comprobar que Fluid CSS está funcionando correctamente con IIFE:
 
-```javascript
-fluidCSS({
-  code: `
-      600px<x<1200px?{
-         font-size: (16px, 12px);
-      }
-   `,
-  clss: "extra-classes",
-});
+```html
+<script src="https://jeff-aporta.github.io/fluid-css/static/js/index.all.min.js"></script>
+<script>
+    console.log(fluidCSS); // Debería mostrar la función: ƒ I(e){if(!e)return new ...
+</script>
 ```
 
+### Uso como módulo en Node.js
+Para verificar Fluid CSS como módulo:
+
 ```javascript
-fluidCSS()
-  .btwX([600, 1200], {
-    fontSize: ["16px", "12px"],
-  })
-  .end("extra-classes");
+import fluidCSS from "fluid-css-lng";
+
+console.log(fluidCSS); // Debería mostrar la función: ƒ fluidCSS(props) { ...
 ```
 
-Este código ajusta el tamaño de la fuente dependiendo del ancho de la pantalla. Si el ancho está entre 600px y 1200px, el tamaño será de 16px. Si está fuera de ese rango, se aplicará 12px.
+## Características principales
+
+- **Interpolación Lineal**  
+  Ajusta de forma fluida los atributos que utilizan unidades en píxeles, permitiendo que los elementos de la interfaz se adapten proporcionalmente. Ideal para transiciones suaves y escalado preciso en diseños responsivos.
+
+- **Condiciones Dinámicas**  
+  Define comportamientos específicos basados en condiciones dinámicas como "menor que", "mayor que" y "entre", aplicadas al ancho o altura de la ventana. De esta forma, los elementos responden a diferentes propiedades según rangos de dimensiones.
+
+- **Fácil Integración**  
+  Fluid CSS es compatible con cualquier proyecto web y es sencillo de implementar tanto en el lado del cliente como en el lado del servidor. Esto lo hace ideal para proyectos que requieren una adaptación dinámica de los estilos en función de las dimensiones de la ventana, mejorando la experiencia visual sin complicaciones.
+
+## Ventajas de usar Fluid CSS
+
+Fluid CSS es perfecto para proyectos que necesitan adaptarse de manera elegante y responsiva a una variedad de dispositivos y resoluciones. Su implementación flexible y adaptable permite que los estilos se ajusten automáticamente, optimizando la presentación en diferentes contextos y tamaños de pantalla.
 
 <br />
 <hr />
