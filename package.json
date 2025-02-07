@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {},
   "keywords": [],
-  "author": "J3FF-4P0RT4, P4TR1C14",
+  "author": "J3FF-4P0RT4",
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.3.0",
