@@ -17,6 +17,8 @@ initFluid({
 
 initProcessing({ fluidCSS });
 
+fluidCSS.actualizarStyle = actualizarStyle;
+
 export {
   appvar,
   actualizarStyle,

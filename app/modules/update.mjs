@@ -3,7 +3,7 @@ import appvar from "./vars.mjs";
 setTimeout(() => {
   appvar.css_cmdscalc = "/*.css-cmdcalc remove*/";
   actualizarStyle();
-}, 1);
+});
 
 function actualizarStyle() {
   appvar.actualizarStyleState = true;

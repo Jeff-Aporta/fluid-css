@@ -29,12 +29,12 @@ function _intro() {
         src_params_iife={{
           url: "https://jeff-aporta.github.io/fluid-css/static/js/index.all.min.js",
           name: "fluidCSS",
-          comment: "ƒ I(e){if(!e)return new ... --> all OK",
+          comment: "Debería mostrar la función: ƒ I(e){if(!e)return new ...",
         }}
         src_params_nodemodule={{
           name: "fluidCSS",
           nodepack: "fluid-css-lng",
-          comment: "ƒ fluidCSS(props) { ... --> all OK",
+          comment: "// Debería mostrar la función: ƒ fluidCSS(props) { ...",
         }}
       />
       {sep}
