@@ -26,7 +26,7 @@ function actualizar_style() {
 
   setTimeout(() => {
     permitir_actualizacion = true;
-  }, 100);
+  }, 20);
 }
 
 class fluidCSS_cascade {
@@ -68,7 +68,7 @@ class fluidCSS_cascade {
       .filter(([, valor_estado]) => valor_estado) // Se eliminan los valores inexistentes
       .map(
         ([nombre_prop_css, valor_estado]) =>
-          `${nombre_prop_css}: ${valor_estado};`
+          `${nombre_prop_css}: ${valor_estado} !important;`
       ) // Se generan las propiedades para CSS
       .join(""); // Se convierte en cadena
   }
@@ -141,7 +141,7 @@ class fluidCSS_cascade {
             })
               .map(([nombre_estado, valor_estado]) => {
                 if (valor_estado) {
-                  return [nombre_estado, `${nombre_propcss}: ${valor_estado};`];
+                  return [nombre_estado, `${nombre_propcss}: ${valor_estado} !important;`];
                 }
               })
               .filter(Boolean);
@@ -198,7 +198,7 @@ class fluidCSS_cascade {
     estructuras[mascara_if] = [
       val({ operador: op_true, indice: 0 }),
       val({ operador: op_false, indice: 1 }),
-    ].join("");
+    ].join("").replace(/\s+/g, " ").trim();
 
     return this;
 
@@ -359,11 +359,11 @@ class fluidCSS_cascade {
                 }
               })
               .map(([k, v]) => {
-                return `${k}: ${v};`;
+                return `${k}: ${v} !important;`;
               })
               .join("")}
         }
-      `;
+      `.replace(/\s+/g, " ").trim();
     return this;
   }
 }
