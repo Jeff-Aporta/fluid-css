@@ -239,7 +239,7 @@ class fluidCSS_cascade {
       name: "gtX",
       side: "width",
       op_true: ">",
-      op_false: "<",
+      op_false: "<=",
     });
   }
   gtY(limitBreak, props) {
