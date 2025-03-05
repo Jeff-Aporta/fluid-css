@@ -20,18 +20,8 @@ function actualizar_style() {
     return;
   }
   // permitir_actualizacion = false;
-  style.innerHTML = limpiar_estructura(Object.values(estructuras).join(""));
+  style.innerHTML = Object.values(estructuras).join("");
   permitir_actualizacion = true;
-}
-
-function limpiar_estructura(s) {
-  const reglas_vacias = /\.[\w-]+\s*\{\s*\}/g;
-  const medias_vacias = /@media\s*\(.*?\)\s*\{\s*\}/g;
-  const espacios_innecesarios = /\s+/g;
-  return s
-    .replace(reglas_vacias, "")
-    .replace(medias_vacias, "")
-    .replace(espacios_innecesarios, " ");
 }
 
 class fluidCSS_cascade {
