@@ -19,21 +19,9 @@ function actualizar_style() {
   if (!permitir_actualizacion) {
     return;
   }
-
-  permitir_actualizacion = false;
-
-  calcular_contenido_style();
-
-  setTimeout(() => {
-    calcular_contenido_style();
-    permitir_actualizacion = true;
-  }, 10);
-
-  function calcular_contenido_style() {
-    setTimeout(() => {
-      style.innerHTML = Object.values(estructuras).join("");
-    });
-  }
+  // permitir_actualizacion = false;
+  style.innerHTML = Object.values(estructuras).join("");
+  permitir_actualizacion = true;
 }
 
 class fluidCSS_cascade {
