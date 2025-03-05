@@ -21,12 +21,19 @@ function actualizar_style() {
   }
 
   permitir_actualizacion = false;
-  style.innerHTML = Object.values(estructuras).join("");
+
+  calcular_contenido_style();
 
   setTimeout(() => {
-    style.innerHTML = Object.values(estructuras).join("");
+    calcular_contenido_style();
     permitir_actualizacion = true;
   }, 10);
+
+  function calcular_contenido_style() {
+    setTimeout(() => {
+      style.innerHTML = Object.values(estructuras).join("");
+    });
+  }
 }
 
 class fluidCSS_cascade {
@@ -34,7 +41,7 @@ class fluidCSS_cascade {
     this.retorno = [];
   }
 
-  actualizarStyle(){
+  actualizarStyle() {
     actualizar_style();
   }
 
@@ -141,7 +148,10 @@ class fluidCSS_cascade {
             })
               .map(([nombre_estado, valor_estado]) => {
                 if (valor_estado) {
-                  return [nombre_estado, `${nombre_propcss}: ${valor_estado} !important;`];
+                  return [
+                    nombre_estado,
+                    `${nombre_propcss}: ${valor_estado} !important;`,
+                  ];
                 }
               })
               .filter(Boolean);
@@ -198,7 +208,10 @@ class fluidCSS_cascade {
     estructuras[mascara_if] = [
       val({ operador: op_true, indice: 0 }),
       val({ operador: op_false, indice: 1 }),
-    ].join("").replace(/\s+/g, " ").trim();
+    ]
+      .join("")
+      .replace(/\s+/g, " ")
+      .trim();
 
     return this;
 
@@ -363,7 +376,9 @@ class fluidCSS_cascade {
               })
               .join("")}
         }
-      `.replace(/\s+/g, " ").trim();
+      `
+      .replace(/\s+/g, " ")
+      .trim();
     return this;
   }
 }
