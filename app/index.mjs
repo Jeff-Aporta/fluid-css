@@ -20,7 +20,7 @@ function actualizar_style() {
     return;
   }
   // permitir_actualizacion = false;
-  style.innerHTML = Object.values(estructuras).join("");
+  style.innerHTML = limpiar_estructura(Object.values(estructuras).join(""));
   permitir_actualizacion = true;
 }
 
@@ -31,8 +31,7 @@ function limpiar_estructura(s) {
   return s
     .replace(reglas_vacias, "")
     .replace(medias_vacias, "")
-    .replace(espacios_innecesarios, " ")
-    .trim();
+    .replace(espacios_innecesarios, " ");
 }
 
 class fluidCSS_cascade {
@@ -135,7 +134,7 @@ class fluidCSS_cascade {
       return this; // Ya existe la propiedad
     }
     diccionario[key] = mascara_btw;
-    estructuras[mascara_btw] = limpiar_estructura(`
+    estructuras[mascara_btw] = `
       ${(() => {
         const calcular_estados_clases = Object.entries(props).map(
           ([nombre_propcss, estados]) => {
@@ -183,9 +182,10 @@ class fluidCSS_cascade {
               }
             `;
           })
-          .join("\n");
+          .join("\n")
+          .replace(/\s+/g, " ");
       })()}
-    `);
+    `;
 
     return this;
   }
@@ -203,12 +203,13 @@ class fluidCSS_cascade {
       return this; // Ya existe la propiedad
     }
     diccionario[key] = mascara_if;
-    estructuras[mascara_if] = limpiar_estructura(
-      [
-        val({ operador: op_true, indice: 0 }),
-        val({ operador: op_false, indice: 1 }),
-      ].join("")
-    );
+    estructuras[mascara_if] = [
+      val({ operador: op_true, indice: 0 }),
+      val({ operador: op_false, indice: 1 }),
+    ]
+      .join("")
+      .replace(/\s+/g, " ")
+      .trim();
 
     return this;
 
@@ -332,7 +333,7 @@ class fluidCSS_cascade {
       return this; // Ya existe la propiedad
     }
     diccionario[key] = mascara_lerp;
-    estructuras[mascara_lerp] = limpiar_estructura(`
+    estructuras[mascara_lerp] = `
         .${mascara_lerp} {
             ${Object.entries(props)
               .map(([k, v]) => {
@@ -373,7 +374,9 @@ class fluidCSS_cascade {
               })
               .join("")}
         }
-      `);
+      `
+      .replace(/\s+/g, " ")
+      .trim();
     return this;
   }
 }
