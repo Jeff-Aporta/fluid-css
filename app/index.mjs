@@ -24,6 +24,17 @@ function actualizar_style() {
   permitir_actualizacion = true;
 }
 
+function limpiar_estructura(s) {
+  const reglas_vacias = /\.[\w-]+\s*\{\s*\}/g;
+  const medias_vacias = /@media\s*\(.*?\)\s*\{\s*\}/g;
+  const espacios_innecesarios = /\s+/g;
+  return s
+    .replace(reglas_vacias, "")
+    .replace(medias_vacias, "")
+    .replace(espacios_innecesarios, " ")
+    .trim();
+}
+
 class fluidCSS_cascade {
   constructor() {
     this.retorno = [];
@@ -124,7 +135,7 @@ class fluidCSS_cascade {
       return this; // Ya existe la propiedad
     }
     diccionario[key] = mascara_btw;
-    estructuras[mascara_btw] = `
+    estructuras[mascara_btw] = limpiar_estructura(`
       ${(() => {
         const calcular_estados_clases = Object.entries(props).map(
           ([nombre_propcss, estados]) => {
@@ -172,10 +183,9 @@ class fluidCSS_cascade {
               }
             `;
           })
-          .join("\n")
-          .replace(/\s+/g, " ");
+          .join("\n");
       })()}
-    `;
+    `);
 
     return this;
   }
@@ -193,13 +203,12 @@ class fluidCSS_cascade {
       return this; // Ya existe la propiedad
     }
     diccionario[key] = mascara_if;
-    estructuras[mascara_if] = [
-      val({ operador: op_true, indice: 0 }),
-      val({ operador: op_false, indice: 1 }),
-    ]
-      .join("")
-      .replace(/\s+/g, " ")
-      .trim();
+    estructuras[mascara_if] = limpiar_estructura(
+      [
+        val({ operador: op_true, indice: 0 }),
+        val({ operador: op_false, indice: 1 }),
+      ].join("")
+    );
 
     return this;
 
@@ -323,7 +332,7 @@ class fluidCSS_cascade {
       return this; // Ya existe la propiedad
     }
     diccionario[key] = mascara_lerp;
-    estructuras[mascara_lerp] = `
+    estructuras[mascara_lerp] = limpiar_estructura(`
         .${mascara_lerp} {
             ${Object.entries(props)
               .map(([k, v]) => {
@@ -364,9 +373,7 @@ class fluidCSS_cascade {
               })
               .join("")}
         }
-      `
-      .replace(/\s+/g, " ")
-      .trim();
+      `);
     return this;
   }
 }
