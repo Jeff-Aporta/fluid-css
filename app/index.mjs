@@ -22,9 +22,8 @@ function actualizar_style() {
 
   permitir_actualizacion = false;
 
-  style.innerHTML = Object.values(estructuras).join("");
-
   setTimeout(() => {
+    style.innerHTML = Object.values(estructuras).join("");
     permitir_actualizacion = true;
   }, 20);
 }
