@@ -49,15 +49,16 @@
     ></script>
 
     <script>
-      asciiMap.CLI.designSysCliRender_DocuDesignPR();
+      asciiMap.CLI.myUI().DocuDesignPR();
+      asciiMap.CLI.myUI().playground();
 
       if (window.location.href.includes("github")) {
         asciiMap.writenodes("static/js/appdoc.client.merged.min.js");
       } else {
         asciiMap
           .tree("static")
-          .subDir("jsx", (jsx) => {
-            jsx.jsx("initApp").subDir("contents", (contents) => {
+          .newBranch("jsx", (jsx) => {
+            jsx.jsx("initApp").newBranch("contents", (contents) => {
               contents.jsx("intro", "conds", "lerp");
             });
           })
@@ -67,7 +68,7 @@
   </head>
   <body>
     <script>
-      asciiMap.CLI.designSysCliRender_DocuDesign_body();
+      asciiMap.CLI.myUI().DocuDesignBody();
     </script>
   </body>
 </html>
