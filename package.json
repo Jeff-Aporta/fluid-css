@@ -1,12 +1,14 @@
 {
-  "name": "fluid-css-lng",
-  "version": "1.1.12",
+  "name": "@jeff-aporta/fluidcss",
+  "version": "1.0.0",
   "main": "./app/index.mjs",
-  "description": "Lenguaje interpretado para tratamiento de caracteristicas complejas de CSS.",
+  "description": "Controlador de caracteristicas complejas en CSS.",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "publish-package": "node build && npm publish --access public && npm version patch"
+  },
   "keywords": [],
-  "author": "J3FF-4P0RT4",
+  "author": "Jeffrey Agudelo",
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.3.0",

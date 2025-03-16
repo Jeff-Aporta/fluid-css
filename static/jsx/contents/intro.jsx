@@ -10,13 +10,13 @@ function _intro() {
   return (
     <$FMD>
       <_$Bienvenido name_app="Fluid CSS" img_url="static/img/app.svg">
-        Sistema avanzado de manejo y manipulación de estilos CSS dinámicos,
-        basado en comandos personalizados.
+        Fluid CSS es un sistema avanzado para el manejo y manipulación de
+        estilos CSS dinámicos, basado en comandos personalizados.
         <p>
           Diseñado para ajustar y personalizar estilos en función de condiciones
           específicas, Fluid CSS permite definir reglas CSS que responden a
-          parámetros como el tamaño de la pantalla, mediante comandos de estilo
-          encapsulados.
+          parámetros como el tamaño de la pantalla, utilizando comandos de
+          estilo encapsulados.
         </p>
       </_$Bienvenido>
       {sep}
@@ -44,42 +44,47 @@ function _intro() {
 
   function Caracteristicas() {
     return (
-      <$index label="Características principales">
+      <$index label="Características Técnicas">
         <Card className="pad-10px">
-          <$ variant="h5">Características principales:</$>
+          <Typography variant="h5">Funciones Principales:</Typography>
           {sep}
           <$CardDef title="Interpolación Lineal" elevation={0}>
-            ajusta de manera fluida los atributos que utilicen unidades en
-            píxeles, permitiendo que los elementos de la interfaz se adapten
-            proporcionalmente. Los diseños responsivos harán transiciones suaves
-            y escalado preciso.
+            Fluid CSS utiliza la función <code>lerp</code> para realizar
+            interpolaciones suaves entre valores de estilo. Esto permite que los
+            elementos de la interfaz se ajusten dinámicamente según el tamaño de
+            la ventana, proporcionando una experiencia visual fluida.
           </$CardDef>
           <$CardDef title="Condiciones Dinámicas" elevation={0}>
-            Define comportamientos específicos mediante condiciones dinámicas
-            como "menor que", "mayor que" y "entre", aplicadas al ancho o a la
-            altura de la ventana.
+            <div>
+              Con las funciones <code>btwX</code>, <code>btwY</code>,{" "}
+              <code>ltX</code>, y <code>gtX</code>, Fluid CSS permite definir
+              estilos que responden a condiciones específicas basadas en el
+              tamaño de la ventana. Esto incluye aplicar estilos cuando el ancho
+              o la altura está dentro de un rango específico o por encima/debajo
+              de ciertos límites.
+            </div>
             <p>
-              Ajusta de manera fluida los elementos que respondan a diferentes
-              propiedades en rangos de dimensiones, optimizando la adaptación de
-              la interfaz según el tamaño de la pantalla.
+              Estas condiciones permiten una personalización precisa de la
+              interfaz, optimizando la adaptación a diferentes dispositivos y
+              resoluciones.
             </p>
           </$CardDef>
           <$CardDef title="Fácil Integración" elevation={0}>
-            Compatible con cualquier proyecto web y es sencillo de implementar.
-            Funciona tanto en el lado del cliente como en el lado del servidor
-            usando npm, lo que permite una integración flexible y adaptable a
-            distintos entornos de desarrollo.
+            Fluid CSS es compatible con cualquier proyecto web y se integra
+            fácilmente utilizando npm. Su diseño modular permite que funcione
+            tanto en el lado del cliente como en el servidor, facilitando su
+            implementación en diversos entornos de desarrollo.
             <p>
-              Ideal para la adaptación dinámica de los estilos según las
-              dimensiones de la ventana, optimizando la experiencia visual sin
-              complicaciones adicionales.
+              La biblioteca está diseñada para ser intuitiva, permitiendo a los
+              desarrolladores aplicar estilos dinámicos sin complicaciones
+              adicionales.
             </p>
           </$CardDef>
         </Card>
         <$$h />
         <Card className="pad-20px" elevation={6}>
           <strong>
-            Fluid CSS es ideal para proyectos que necesitan adaptarse de manera
+            Fluid CSS es ideal para proyectos que requieren una adaptación
             elegante y responsiva a diferentes dispositivos y resoluciones.
           </strong>
         </Card>
