@@ -1,6 +1,6 @@
 {
   "name": "@jeff-aporta/fluidcss",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "main": "app/index.mjs",
   "description": "Controlador de caracteristicas complejas en CSS.",
   "type": "module",
