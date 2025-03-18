@@ -73,6 +73,35 @@ class fluidCSS_cascade {
     setTimeout(actualizar_style);
     return retorno;
   }
+  #cursor(operador, props) {
+    const kebabProps = this.#props_convertirEnArreglo_ordenAlfabetico(props);
+    const struct = this.#extraerPropsEstadosParaCSS(kebabProps, 0);
+    const key = [struct,operador].join("-");
+    const existe = diccionario.hasOwnProperty(key);
+    const mascara_cursor = Math.random()
+      .toString(36)
+      .replace("0.", key + "-");
+    diccionario[key] ??= mascara_cursor;
+    this.retorno.push(diccionario[key]);
+    if (existe) {
+      return this; // Ya existe la propiedad
+    }
+    diccionario[key] = mascara_cursor;
+    
+    this.retorno.push(
+      `@media ${operador}{
+          ${selector} { 
+            ${struct} 
+          }
+       }`.trim()
+    );
+  }
+  withTouchscreen(props) {
+    this.#cursor("(hover: none) and (pointer: coarse)", props);
+  }
+  inDesktop(props) {
+    this.#cursor("(hover: hover) and (pointer: fine)", props);
+  }
   btwX(...args) {
     return this.#btw("btwX", "width", ...args);
   }
