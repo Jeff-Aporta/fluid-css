@@ -5,7 +5,8 @@
   "description": "Controlador de caracteristicas complejas en CSS.",
   "type": "module",
   "scripts": {
-    "publish-package": "node build && npm publish --access public && npm version patch"
+    "build": "node build",
+    "publish-package": "npm publish --access public && npm version patch"
   },
   "keywords": [],
   "author": "Jeffrey Agudelo",

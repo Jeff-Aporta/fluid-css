@@ -2,9 +2,9 @@ import { merger, build_SASS_rollup, build_rollup, next_version } from "merger-cl
 
 await build_rollup();
 
-merger({
+/* merger({
     folderRoot: "./static/jsx",
     output: "./static/js/appdoc.client.merged.min.js",
-});
+}); */
 
 // await next_version();
